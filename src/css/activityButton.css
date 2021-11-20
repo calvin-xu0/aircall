@@ -1,0 +1,36 @@
+.activity-button {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 0.5em 0;
+  border: 1px silver solid;
+  border-radius: 15px;
+  padding: 10px;
+  padding-right: 2px;
+  box-sizing: border-box;
+}
+
+.activity-direction, .activity-time {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.activity-direction {
+  width: 10%;
+}
+
+.activity-summary {
+  width: 75%;
+  text-overflow: ellipsis;
+}
+
+.activity-from {
+  font-weight: bolder;
+  font-size: larger;
+  color: #333;
+}
+
+.activity-time {
+  width: 15%;
+}

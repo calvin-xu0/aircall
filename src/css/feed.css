@@ -1,0 +1,9 @@
+.day-container {
+  margin: 2em 0;
+  color: silver;
+}
+
+.day-container > .day-date {
+  text-align: center;
+  margin: 1em 0;
+}
