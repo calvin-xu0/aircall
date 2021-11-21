@@ -4,9 +4,9 @@ import { stateContext } from "./providers/StateProvider.jsx";
 
 export default function Inbox() {
   const { state } = useContext(stateContext);
-  const { inbox } = state;
+  const { archive } = state;
   
   return (
-    <ActivityFeed {...inbox} />
+    <ActivityFeed {...archive} />
   )
 };
