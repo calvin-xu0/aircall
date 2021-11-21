@@ -39,7 +39,7 @@ export default function ActivityFeed(props) {
   })
 
   return (
-    <div className="container-view">
+    <div>
       {parsedDays}
     </div>
   )

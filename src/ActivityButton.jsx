@@ -11,7 +11,7 @@ export default function ActivityButton(props) {
   return (
     <NavLink to={`/activity/${id}`} className="activity-button">
       <div className="activity-direction">
-        {direction === "outbound" && "O" || direction === "inbound" && "I"}
+        {direction === "outbound" && "📞→" || direction === "inbound" && "📞←"}
       </div>
       <div className="activity-summary">
         <div className="activity-from">

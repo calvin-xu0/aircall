@@ -18,12 +18,14 @@ const App = () => {
         <Router>
           <Nav />
 
-          <Routes>
-            <Route path="/archive" element={<Archive />} />
-            <Route path="/activity/:id" element={<ActivityDetail />} />
+          <div className="container-view">
+            <Routes>
+                <Route path="/archive" element={<Archive />} />
+                <Route path="/activity/:id" element={<ActivityDetail />} />
 
-            <Route path="/" element={<Inbox />} /> 
-          </Routes>
+                <Route path="/" element={<Inbox />} />
+            </Routes>
+          </div>
         </Router>
       </StateProvider>
     </div>

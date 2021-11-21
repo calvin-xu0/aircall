@@ -3,6 +3,8 @@ import React, { useContext } from "react";
 import { useParams } from "react-router";
 import { stateContext } from "./providers/StateProvider.jsx";
 
+import "./css/detail.css";
+
 export default function ActivityDetail() {
   const { state, setArchiveStatus } = useContext(stateContext);
   const { inbox, archive } = state;
@@ -62,9 +64,11 @@ export default function ActivityDetail() {
         </tr>
       </table>
 
+      <div className="archive-container">
         <button onClick={changeArchiveStatus}>
           {is_archived ? "Unarchive" : "Archive"}
         </button>
+      </div>
     </div>
   )
 }

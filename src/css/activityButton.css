@@ -25,14 +25,15 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  color: black;
 }
 
 .activity-direction {
-  width: 10%;
+  width: 15%;
 }
 
 .activity-summary {
-  width: 75%;
+  width: 70%;
   text-overflow: ellipsis;
 }
 

@@ -8,14 +8,14 @@
 }
 
 .nav-link {
-  /* width: 50%; */
   color: black;
   text-decoration: none;
   text-align: center;
-  margin:auto
+  margin: 0.5em auto;
+  height: 90%;
 }
 
 .nav-active {
-  border-bottom: 2px red solid;
+  border-bottom: 5px red solid;
   font-weight: bolder;
 }
