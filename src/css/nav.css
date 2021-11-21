@@ -1,0 +1,21 @@
+.nav-bar {
+  width: 100%;
+  background: #F9F9F9;
+  padding: 0.5em;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.nav-link {
+  /* width: 50%; */
+  color: black;
+  text-decoration: none;
+  text-align: center;
+  margin:auto
+}
+
+.nav-active {
+  border-bottom: 2px red solid;
+  font-weight: bolder;
+}

@@ -1,8 +1,9 @@
 import React, { useContext, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import axios from "axios";
 
 import { stateContext } from "./providers/StateProvider.jsx";
+import './css/nav.css';
 
 export default function Inbox() {
   const { setActivities } = useContext(stateContext);
@@ -14,10 +15,12 @@ export default function Inbox() {
       })
   }, [])
 
+  const navClass = ({isActive}) => [`nav-link`, isActive ? `nav-active` : ``].join(' ');
+
   return (
-    <nav>
-      <Link to="/">Inbox</Link>
-      <Link to="/archive">Archive</Link>
+    <nav className="nav-bar">
+      <NavLink className={navClass} to="/">Inbox</NavLink>
+      <NavLink className={navClass} to="/archive">Archive</NavLink>
     </nav>
   )
 }
