@@ -7,7 +7,9 @@ export default function ActivityFeed(props) {
 
   // Separate activities by calendar day
   const activitiesByDay = {};
-  Object.values(activities).map( activity => {
+  Object.values(activities)
+    .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
+    .map( activity => {
     const dateString = (new Date(activity.created_at)).toDateString();
     if (activitiesByDay[`${dateString}`]) {
       activitiesByDay[`${dateString}`].push(activity);
