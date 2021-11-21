@@ -3,11 +3,11 @@ import "./css/feed.css"
 import ActivityButton from "./ActivityButton.jsx";
 
 export default function ActivityFeed(props) {
-  const [...activities] = props;
+  const {...activities} = props;
 
   // Separate activities by calendar day
   const activitiesByDay = {};
-  activities.map( activity => {
+  Object.values(activities).map( activity => {
     const dateString = (new Date(activity.created_at)).toDateString();
     if (activitiesByDay[`${dateString}`]) {
       activitiesByDay[`${dateString}`].push(activity);

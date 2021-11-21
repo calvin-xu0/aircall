@@ -28,7 +28,7 @@ export default function StateProvider(props) {
         return ({
           ...state,
           inbox: inboxDispatch,
-          archive, archiveDispatch
+          archive: archiveDispatch
         })
       case CHANGE_ARCHIVE_STATUS:
         if (inbox[action.value.id]) {
@@ -46,7 +46,7 @@ export default function StateProvider(props) {
         );
     }
   }
-  console.log("state:", state)
+  
   const providerData = {
     state,
     setActivities,
