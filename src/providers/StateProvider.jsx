@@ -18,6 +18,7 @@ export default function StateProvider(props) {
 
   function reducer(state, action) {
     switch (action.type) {
+      // Set state after GET request
       case SET_ACTIVITIES:
         const inboxDispatch = {};
         const archiveDispatch = {};
@@ -30,6 +31,7 @@ export default function StateProvider(props) {
           inbox: inboxDispatch,
           archive: archiveDispatch
         })
+      // Set state after archive/unarchive of activities
       case SET_ARCHIVE_STATUS:
         const updatedActivity = {...action.value, is_archived: !action.value.is_archived};
         if (state.inbox[action.value.id]) {
