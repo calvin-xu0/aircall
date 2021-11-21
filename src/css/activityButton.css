@@ -25,11 +25,22 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: black;
 }
 
 .activity-direction {
   width: 15%;
+}
+
+.activity-missed {
+  color: red;
+}
+
+.activity-answered {
+  color: green;
+}
+
+.activity-voicemail {
+  color: blue;
 }
 
 .activity-summary {
