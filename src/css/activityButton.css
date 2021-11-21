@@ -29,6 +29,8 @@
 
 .activity-direction {
   width: 15%;
+  display: flex;
+  align-items: center;
 }
 
 .activity-missed {
@@ -45,6 +47,7 @@
 
 .activity-summary {
   width: 70%;
+  overflow-x: hidden;
   text-overflow: ellipsis;
 }
 
