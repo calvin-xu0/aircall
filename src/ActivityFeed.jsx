@@ -1,17 +1,9 @@
-import React, { useEffect,useState } from "react";
-import axios from "axios";
+import React from "react";
 import "./css/feed.css"
 import ActivityButton from "./ActivityButton.jsx";
 
-export default function ActivityFeed() {
-  const [activities, setActivities] = useState([]);
-
-  useEffect( () => {
-    axios.get("https://aircall-job.herokuapp.com/activities")
-      .then(res => {
-        setActivities(res.data)
-      })
-  }, [])
+export default function ActivityFeed(props) {
+  const [...activities] = props;
 
   // Separate activities by calendar day
   const activitiesByDay = {};

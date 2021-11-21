@@ -2,7 +2,7 @@ import React from "react";
 import "./css/activityButton.css";
 
 export default function ActivityButton(props) {
-  const {created_at, direction, from, to, via, call_type} = props;
+  const {created_at, direction, from, to} = props;
 
   const dateObj = new Date(created_at);
   const [hour, minute] = [dateObj.getUTCHours(), dateObj.getMinutes()];
@@ -21,7 +21,7 @@ export default function ActivityButton(props) {
         </div>
       </div>
       <div className="activity-time">
-        {hour > 12 ? `${hour - 12}:${minute}` : `${hour}:${minute}`}
+        {(hour > 12 ? `${hour - 12}` : `${hour}`) + `:${minute}`}
         <span className="time-suffix">
           {hour > 12 ? "PM" : "AM"}
         </span>
