@@ -3,6 +3,7 @@ import "./css/feed.css"
 import ActivityButton from "./ActivityButton.jsx";
 
 export default function ActivityFeed(props) {
+  // Inbox/archive-agnostic feed, only dependent on props
   const {...activities} = props;
 
   // Separate activities by calendar day
@@ -19,6 +20,7 @@ export default function ActivityFeed(props) {
   });
 
   const parsedDays = Object.entries(activitiesByDay).map(([day, dayActivities]) => {
+    // Activities in each individual day
     const parsedDayActivities = dayActivities.map(activity => {
       return (
         <ActivityButton

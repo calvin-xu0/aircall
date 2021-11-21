@@ -8,10 +8,10 @@ export default function ActivityButton(props) {
   const dateObj = new Date(created_at);
   const [hour, minute] = [dateObj.getUTCHours(), dateObj.getMinutes()];
 
+  // Colour-code call type using class
   const activityClass = () => {
     const output = ["activity-direction"];
     output.push(`activity-${call_type}`)
-    console.log(output)
     return output.join(' ');
   }
 
