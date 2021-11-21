@@ -1,14 +1,15 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import "./css/activityButton.css";
 
 export default function ActivityButton(props) {
-  const {created_at, direction, from, to} = props;
+  const {id, created_at, direction, from, to} = props;
 
   const dateObj = new Date(created_at);
   const [hour, minute] = [dateObj.getUTCHours(), dateObj.getMinutes()];
 
   return (
-    <div className="activity-button">
+    <NavLink to={`/activity/${id}`} className="activity-button">
       <div className="activity-direction">
         {direction === "outbound" && "O" || direction === "inbound" && "I"}
       </div>
@@ -26,6 +27,6 @@ export default function ActivityButton(props) {
           {hour > 12 ? "PM" : "AM"}
         </span>
       </div>
-    </div>
+    </NavLink>
   )
 };

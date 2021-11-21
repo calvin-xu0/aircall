@@ -7,6 +7,7 @@ import Header from './Header.jsx';
 import Nav from './Nav.jsx';
 import Inbox from './Inbox.jsx';
 import Archive from './Archive.jsx';
+import ActivityDetail from './ActivityDetail.jsx';
 
 const App = () => {
 
@@ -18,8 +19,10 @@ const App = () => {
           <Nav />
 
           <Routes>
-            <Route path="/archive" element={<Archive />}/>
-            <Route path="/" element={<Inbox />}/>
+            <Route path="/archive" element={<Archive />} />
+            <Route path="/activity/:id" element={<ActivityDetail />} />
+
+            <Route path="/" element={<Inbox />} /> 
           </Routes>
         </Router>
       </StateProvider>
