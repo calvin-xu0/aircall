@@ -8,6 +8,7 @@
   padding: 10px;
   padding-right: 2px;
   box-sizing: border-box;
+  background: white;
 }
 
 .activity-direction, .activity-time {
@@ -29,6 +30,7 @@
   font-weight: bolder;
   font-size: larger;
   color: #333;
+  padding-bottom: 0.1em;
 }
 
 .activity-time {
