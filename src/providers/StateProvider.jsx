@@ -1,6 +1,6 @@
 import React, { createContext, useReducer } from "react";
 
-const CHANGE_ARCHIVE_STATUS = "CHANGE_ARCHIVE_STATUS";
+const SET_ARCHIVE_STATUS = "SET_ARCHIVE_STATUS";
 const SET_ACTIVITIES = "SET_ACTIVITIES";
 
 export const stateContext = createContext();
@@ -14,7 +14,7 @@ export default function StateProvider(props) {
   );
 
   const setActivities = activities => dispatch({type: SET_ACTIVITIES, value: activities});
-  const changeArchiveStatus = activity => dispatch({type: CHANGE_ARCHIVE_STATUS, value: activity});
+  const setArchiveStatus = activity => dispatch({type: SET_ARCHIVE_STATUS, value: activity});
 
   function reducer(state, action) {
     switch (action.type) {
@@ -30,14 +30,23 @@ export default function StateProvider(props) {
           inbox: inboxDispatch,
           archive: archiveDispatch
         })
-      case CHANGE_ARCHIVE_STATUS:
-        if (inbox[action.value.id]) {
+      case SET_ARCHIVE_STATUS:
+        const updatedActivity = {...action.value, is_archived: !action.value.is_archived};
+        if (state.inbox[action.value.id]) {
           const archivedInbox = {...state.inbox};
           delete archivedInbox[action.value.id];
           return ({
             ...state,
-            inbox: {archivedInbox},
-            archive: {...state.archive, [`${action.value.id}`]: action.value}
+            inbox: archivedInbox,
+            archive: {...state.archive, [`${action.value.id}`]: updatedActivity}
+          })
+        } else {
+          const unarchivedArchive = {...state.archive};
+          delete unarchivedArchive[action.value.id];
+          return ({
+            ...state,
+            inbox: {...state.inbox, [`${action.value.id}`]: updatedActivity},
+            archive: unarchivedArchive
           })
         }
       default:
@@ -50,7 +59,7 @@ export default function StateProvider(props) {
   const providerData = {
     state,
     setActivities,
-    changeArchiveStatus
+    setArchiveStatus
   }
 
   return (

@@ -1,9 +1,10 @@
+import axios from "axios";
 import React, { useContext } from "react";
 import { useParams } from "react-router";
 import { stateContext } from "./providers/StateProvider.jsx";
 
 export default function ActivityDetail() {
-  const { state } = useContext(stateContext);
+  const { state, setArchiveStatus } = useContext(stateContext);
   const { inbox, archive } = state;
   const { id } = useParams();
 
@@ -16,6 +17,16 @@ export default function ActivityDetail() {
 
   const {created_at, direction, from, to, via, duration, is_archived, call_type} = activity;
   const timestamp = (new Date(created_at)).toString();
+
+  const changeArchiveStatus = () => {
+    axios.post(`https://aircall-job.herokuapp.com/activities/${id}`, {is_archived: !is_archived})
+      .then(res => 
+        setArchiveStatus(activity)
+      )
+      .catch(err =>
+        console.log(err)
+      );
+  }
 
   return (
     <div className="activity-detail">
@@ -50,7 +61,10 @@ export default function ActivityDetail() {
           <td>{call_type}</td>
         </tr>
       </table>
-      
+
+        <button onClick={changeArchiveStatus}>
+          {is_archived ? "Unarchive" : "Archive"}
+        </button>
     </div>
   )
 }
