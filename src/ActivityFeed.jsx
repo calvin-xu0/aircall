@@ -18,10 +18,6 @@ export default function ActivityFeed(props) {
 
   const parsedDays = Object.entries(activitiesByDay).map(([day, dayActivities]) => {
     const parsedDayActivities = dayActivities.map(activity => {
-      // Exclude archived activities from feed
-      if (activity.archived === true) {
-        return;
-      }
       return (
         <ActivityButton
           key={activity.id}
@@ -31,7 +27,7 @@ export default function ActivityFeed(props) {
     })
 
     return (
-      <div className="day-container">
+      <div className="day-container" key={day}>
         <div className="day-date">
           {day}
         </div>
